@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active" href="{% url 'votingapp:home' %}">Home</a>
+    </li>
+    {% if user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'votingapp:logout' %}">Logout</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'votingapp:vote' %}">Vote</a>
+    </li>
+    {% else %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'votingapp:login' %}">Login</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'votingapp:register' %}">Register</a>
+    </li>
+    {% endif %}
+  </ul>
+</nav>
